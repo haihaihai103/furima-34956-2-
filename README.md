@@ -1,24 +1,46 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| nickname  | string | null: false |
+| email     | string | null: false |
+| password  | string | null: false |
+| encrypted_password | string  | null: false |
+| last_name | string | null: false |
+| first_name| string | null: false |
+| last_name_kana| string | null: false |
+| first_name_kana| string | null: false |
+| birthday_yy| string | null: false |
+| birthday_mm| string | null: false |
+| birthday_dd| string | null: false |
 
-Things you may want to cover:
+## itemsテーブル
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| image  | ActiveStorage | null: false|
+| title     | string | null: false |
+| concept   | text   | null: false |
+| category  | string | null: false |
+| status    | string | null: false |
+| burden    | string | null: false |
+| area      | string | null: false |
+| days_ship | string | null: false |
+| price     | integer | null: false |
+| user      | references |    |
 
-* Ruby version
+## customersテーブル
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| user      | references|          |
+| item      | references|          |
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## deliveryテーブル
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| postcode  | integer| null: false |
+| state    | string | null: false |
+| city      | string | null: false |
+| address   | string | null: false |
+| phone_number | string | null: false |
+| building_name | string | null: false |
