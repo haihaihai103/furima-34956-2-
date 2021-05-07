@@ -2,7 +2,7 @@
 
 ## usersテーブル
  has_many :items
- has_many :delivery
+ has_many :customers
 
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
@@ -16,8 +16,8 @@
 | birth_date| date | null: false |
 
 ## itemsテーブル
- belongs_to :users
- has_one :customers
+ belongs_to :user
+ has_one :customer
 
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
@@ -32,26 +32,25 @@
 | user      | references | foreign_key:true |
 
 ## customersテーブル
-belongs_to :items
+belongs_to :item
 has_one : delivery
 
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
-| user_id | references | foreign_key: true |
-| item_id | references | foreign_key: true |
+| user | references | foreign_key: true |
+| item | references | foreign_key: true |
 
 ## deliveryテーブル
- belongs_to :users
- belongs_to :customers
+belongs_to :customer
 
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
 | postcode      | string  | null: false |
-| state         | integer | null: false |
+| area_id       | integer | null: false |
 | city          | string  | null: false |
 | address       | string  | null: false |
 | phone_number  | string  | null: false |
 | building_name | string  |            |
-| customer_id   | references | foreign_key: true|
+| customer  | references | foreign_key: true|
 
  
