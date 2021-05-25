@@ -34,6 +34,12 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
+  end
 end
 
   private
@@ -47,6 +53,7 @@ end
   end
 
   def move_to_index
+    @item = Item.find(params[:id])
     unless current_user.id == @item.user_id
       redirect_to root_path
     end
