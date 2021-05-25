@@ -47,9 +47,8 @@ end
   end
 
   def move_to_index
-    @item = Item.find(params[:id])
     unless current_user.id == @item.user_id
-      redirect_to new_user_session_path
+      redirect_to root_path
     end
   end
 
