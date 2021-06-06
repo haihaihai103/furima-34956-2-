@@ -27,6 +27,7 @@ before_action :sold_out_item, only: [:index]
   def sold_out_item
     @item = Item.find(params[:item_id])
     redirect_to root_path if @item.customer.present?
+    redirect_to root_path unless user_signed_in?
   end
 
   def pay_item
