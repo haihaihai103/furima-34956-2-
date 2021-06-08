@@ -29,7 +29,7 @@ before_action :sold_out_item
   end
 
   def sold_out_item
-    redirect_to root_path if current_user.id == @item.user.id && @item.customer.present?
+    redirect_to root_path if current_user.id == @item.user.id || @item.customer.present?
   end
 
   def pay_item
