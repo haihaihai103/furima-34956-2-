@@ -50,6 +50,11 @@ RSpec.describe CustomerDelivery, type: :model do
         @customer_delivery.valid?
         expect(@customer_delivery.errors.full_messages).to include('Phone number is invalid')
       end
+      it 'phone_numberが11桁以下の数値のみしか保存できないこと' do
+        @customer_delivery.phone_number = '090123456789'
+        @customer_delivery.valid?
+        expect(@customer_delivery.errors.full_messages).to include('Phone number is invalid')
+      end
       it 'userが紐付いていないと保存できないこと' do
         @customer_delivery.user_id = nil
         @customer_delivery.valid?
