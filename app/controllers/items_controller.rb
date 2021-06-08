@@ -51,8 +51,6 @@ end
   end
 
   def move_to_index
-    unless current_user.id == @item.user_id && @item.customer.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id == @item.user_id && @item.customer.present?
   end
 

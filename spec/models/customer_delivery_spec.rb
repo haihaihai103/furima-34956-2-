@@ -55,6 +55,11 @@ RSpec.describe CustomerDelivery, type: :model do
         @customer_delivery.valid?
         expect(@customer_delivery.errors.full_messages).to include('Phone number is invalid')
       end
+      it 'phone_numberが英数混合では保存できないこと' do
+        @customer_delivery.phone_number = '0901234abc'
+        @customer_delivery.valid?
+        expect(@customer_delivery.errors.full_messages).to include('Phone number is invalid')
+      end
       it 'userが紐付いていないと保存できないこと' do
         @customer_delivery.user_id = nil
         @customer_delivery.valid?
@@ -64,6 +69,11 @@ RSpec.describe CustomerDelivery, type: :model do
         @customer_delivery.item_id = nil
         @customer_delivery.valid?
         expect(@customer_delivery.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'tokenが紐付いていないと保存できないこと' do
+        @customer_delivery.token = nil
+        @customer_delivery.valid?
+        expect(@customer_delivery.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
