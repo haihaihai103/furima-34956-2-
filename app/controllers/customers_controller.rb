@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 before_action :item_set
-before_action :authenticate_user!, except: [:index]
-before_action :sold_out_item, only: [:index]
+before_action :authenticate_user!
+before_action :sold_out_item
 
   def index
     @customer_delivery = CustomerDelivery.new
@@ -29,9 +29,7 @@ before_action :sold_out_item, only: [:index]
   end
 
   def sold_out_item
-    redirect_to root_path if current_user.id == @item.user.id 
-    redirect_to root_path if @item.customer.present?
-    redirect_to root_path unless user_signed_in?
+    redirect_to root_path if current_user.id == @item.user.id && @item.customer.present?
   end
 
   def pay_item
