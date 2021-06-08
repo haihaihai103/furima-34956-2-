@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :days_ship
   belongs_to :status
   has_one_attached :image
-  #has_one :customer
+  has_one :customer
 
   with_options presence: true do
     validates :title

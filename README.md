@@ -41,7 +41,7 @@ has_one : delivery
 | user | references | foreign_key: true |
 | item | references | foreign_key: true |
 
-## deliveryテーブル
+## deliveryテーブル 
 belongs_to :customer
 
 | Column    | Type   | Options     |

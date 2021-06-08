@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order("created_at DESC")
-
   end
 
   def new
@@ -52,8 +51,6 @@ end
   end
 
   def move_to_index
-    unless current_user.id == @item.user_id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @item.user_id && @item.customer.nil?
   end
 
