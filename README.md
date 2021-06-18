@@ -3,6 +3,7 @@
 ## usersテーブル
  has_many :items
  has_many :customers
+ has_many :user
 
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
@@ -52,6 +53,15 @@ belongs_to :customer
 | address       | string  | null: false |
 | phone_number  | string  | null: false |
 | building_name | string  |            |
-| customer  | references | foreign_key: true|
+| customer  | references | foreign_key: true |
+
+## sns_credentialsテーブル
+belong_to :user
+
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| provider | string  | |
+| uid      | string  | |
+| user     | references  | foreign_key: true |
 
  
