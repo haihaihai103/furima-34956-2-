@@ -101,6 +101,7 @@
   </div>
   <div class='register-btn'>
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
+     ＜googleやfacebookでもログイン可能です＞
     <%= link_to image_tag('1google_signin_web', class: 'google-logo'), user_google_oauth2_omniauth_authorize_path, method: :post %>
     <%= link_to image_tag('2f_logo_Blue_58', class: 'facebook-logo'), user_facebook_omniauth_authorize_path, method: :post %>
   </div>
