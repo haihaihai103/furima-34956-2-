@@ -4,7 +4,8 @@
  has_many :items
  has_many :customers
  has_many :user
-
+ has_one :card
+ 
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
 | nickname  | string | null: false |
@@ -63,5 +64,14 @@ belong_to :user
 | provider | string  | |
 | uid      | string  | |
 | user     | references  | foreign_key: true |
+
+## cardテーブル
+belong_to :user
+
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| cutomer_token | string  | null: false |
+| user  | references| foreign_key: true |
+
 
  
