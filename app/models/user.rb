@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :customers
   has_many :sns_credentials
   has_many :card, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   with_options presence: true do
     validates :nickname

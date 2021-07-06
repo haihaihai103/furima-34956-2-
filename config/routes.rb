@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :items do
     resources :customers, only: [:index, :create]
     get :search, on: :collection
+    resources :comments, only: :create
   end
   resources :users, only: [:show, :update]
   resources :cards, only: [:new, :create]
-  #get 'items/search'
 end

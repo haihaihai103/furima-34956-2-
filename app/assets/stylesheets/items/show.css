@@ -195,12 +195,13 @@
   font-size: 30px;
   text-decoration: none;
   color: #3CCACE;
+  align-items: center;
 }
 
 .another-item {
   display: block;
   margin: 30px 0px 8px;
-  color: #3CCACE;
+  color: #3CCACEc;
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;

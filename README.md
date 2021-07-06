@@ -5,7 +5,8 @@
  has_many :customers
  has_many :user
  has_one :card
- 
+ has_many :comments
+
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
 | nickname  | string | null: false |
@@ -20,6 +21,7 @@
 ## itemsテーブル
  belongs_to :user
  has_one :customer
+ has_many :comments
 
 | Column    | Type   | Options     |
 | --------  | ------ | ----------- |
@@ -73,5 +75,14 @@ belong_to :user
 | cutomer_token | string  | null: false |
 | user  | references| foreign_key: true |
 
+## commentテーブル
+belong_to :user
+belong_to :item
+
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| text  | text|  |
+| user  | references| foreign_key: true |
+| item  | references| foreign_key: true |
 
  
