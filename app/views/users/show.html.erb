@@ -38,12 +38,19 @@
         <div class="FormField__email">
           <%= f.email_field :email %>
         </div>
+        <div class="FormField">
+        <div class="FormField__pass">
+          <%= f.label :password %>
+        </div>
+        <div class="FormField__pass">
+          <%= f.text_field :password %>
+        </div>
         <br>
       </div>
       <%= f.submit "更新する" %>
     <% end %>
     <br>
-    <%= link_to "商品一覧へ戻る", root_path%>
+    <%= link_to "商品一覧へ戻る", root_path %>
   </div>
 </div>
 
