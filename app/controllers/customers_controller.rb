@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
 before_action :item_set
 before_action :authenticate_user!
+before_action :card_set, only: [:index]
 before_action :sold_out_item
 
   def index
@@ -42,5 +43,10 @@ before_action :sold_out_item
     )
   end
 
-end
+  #マイページにクレジットカード情報を入力していない場合、入力を促す
+  def card_set
+    @card = Card.find_by(user_id: current_user.id)
+    redirect_to new_card_path if @card.nil?
+  end 
+  end
 
