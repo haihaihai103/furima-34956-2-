@@ -5,6 +5,7 @@ class CardsController < ApplicationController
   end
 
   def create
+    @card = Card.new
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
     customer = Payjp::Customer.create(
       description: 'test', # テストカードであることを説明
@@ -18,7 +19,7 @@ class CardsController < ApplicationController
   if card.save
     redirect_to root_path
   else
-    redirect_to action: "new" # カード登録画面へリダイレクト
+    render("cards/new") # カード登録画面へリダイレクト
   end
 end
 
